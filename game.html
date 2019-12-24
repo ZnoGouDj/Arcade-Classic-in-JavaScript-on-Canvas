@@ -32,6 +32,17 @@
             moveEverything();
             drawEverything();
         }, 1000 / framesPerSecond);
+
+        canvas.addEventListener('mousemove', 
+            function(evt) {
+                var mousePos = calculateMousePos(evt);
+                paddle1Y = mousePos.y - (PADDLE_HEIGHT/2);
+            });
+    }
+
+    function ballReset() {
+        ballX = canvas.width/2;
+        ballY = canvas.height/2;
     }
 
     function moveEverything() {
@@ -39,7 +50,8 @@
         ballY += ballSpeedY;
 
         if (ballX < 0) {
-            ballSpeedX = -ballSpeedX;
+            // ballSpeedX = -ballSpeedX;
+            ballReset();
         }
         if (ballX > canvas.width) {
             ballSpeedX = -ballSpeedX;
@@ -57,7 +69,7 @@
         colorRect(0, 0, canvas.width, canvas.height, 'black');
 
         //this is left player paddle
-        colorRect(0, 210, 10, 100, 'white');
+        colorRect(0, paddle1y, 10, PADDLE_HEIGHT, 'white');
 
         //next line draws the ball
         colorCircle(ballX, ballY, 10, 'white');
