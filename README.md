@@ -1,1 +1,1 @@
-# Arcade-Classic-in-JavaScript-on-Canvas
+[Classic Arcade](https://znogoudj.github.io/Arcade-Classic-in-JavaScript-on-Canvas/)
